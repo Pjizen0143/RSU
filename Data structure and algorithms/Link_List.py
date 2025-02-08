@@ -42,19 +42,22 @@ class Single_Link_List:
         else:
             return None
 
-    def remove_last(self):
+     def remove_last(self):
         if self.head is not None:
             if self.head is self.tail:
                 removed_node = self.head
                 self.head = None
                 self.tail = None
-            else:
-                current_node = self.head
-                while current_node.next is not self.tail:
-                    current_node = current_node.next
-                removed_node = self.tail
-                current_node.next = None
-                self.tail = current_node
+                return removed_node
+
+            current_node = self.head
+            while current_node.next is not self.tail:
+                current_node = current_node.next
+
+            removed_node = self.tail
+            current_node.next = None
+            self.tail = current_node
+            
             self.size -= 1
             return removed_node
         else:
