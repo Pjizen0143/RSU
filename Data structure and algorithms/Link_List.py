@@ -38,11 +38,11 @@ class Single_Link_List:
             if self.head is None:
                 self.tail = None
             self.size -= 1
-            return removed_node
+            return removed_node.data
         else:
             return None
 
-     def remove_last(self):
+    def remove_last(self):
         if self.head is not None:
             if self.head is self.tail:
                 removed_node = self.head
@@ -57,9 +57,9 @@ class Single_Link_List:
             removed_node = self.tail
             current_node.next = None
             self.tail = current_node
-            
+
             self.size -= 1
-            return removed_node
+            return removed_node.data
         else:
             return None
 
@@ -81,7 +81,7 @@ class Single_Link_List:
                 previous_node.next = current_node.next
                 current_node.next = None
                 self.size -= 1
-                return current_node
+                return current_node.data
 
     def __repr__(self): #repr(LinkList)
         output = ""
